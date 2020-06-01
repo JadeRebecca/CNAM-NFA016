@@ -1,3 +1,6 @@
+//variables
+var nbArticle = 0;
+
 /*********************             CARTE PRESENTATION DES PACKAGES     ************************************/
 var cartes = document.getElementsByClassName('presaPackSingle');
 
@@ -96,7 +99,9 @@ function remplirTabPrix(tabPrix)
 	for( var i=0; i<tabPrix.length; i++){
 		classTab = tabPrix[i].logement+" "+tabPrix[i].duree+" "+tabPrix[i].saison;
 		montant = Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(tabPrix[i].montant);
+		console.log(montant);
 		document.getElementsByClassName(classTab)[0].getElementsByTagName("span")[0].innerHTML = montant;
+		document.getElementsByClassName(classTab)[0].getElementsByTagName("button")[0].style.display = "none";
 	}
 
 }
@@ -233,7 +238,7 @@ document.getElementsByClassName("dispoDate")[0].addEventListener("input", functi
 				elt2s[j].style.backgroundColor = "#659E7D";
 				elt2s[j].getElementsByTagName("button")[0].style.display = "inline";
 				elt2s[j].getElementsByTagName("p")[0].innerHTML = "plus que "+nbDispo+" chambre(s) disponible(s) ["+dispo[sem].chambre+","+dispo[semSuivante].chambre+"]";
-				console.log("dispo 2 semaines");
+				//console.log("dispo 2 semaines");
 			}
 		}
 	}
@@ -332,7 +337,11 @@ function resetClassMenu() {
 	}
 }
 
-
+/****ajout d'un produit au panier */
+document.getElementById('testAchat').addEventListener("click", function() {	
+	nbArticle++;
+	console.log("ajouté au panier ! "+nbArticle+" articles");
+})
 
 //******EVOLUTIONS******* */	
 //to do : ajouter le nb de pdt dispo. Stocker les prix dans un tableau avant.
