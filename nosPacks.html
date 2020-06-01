@@ -292,19 +292,37 @@
 									<div class="card-header packCard">
 										<h3><span class="fa fa-calendar fa-lg"></span> Vérifier la disponibilité</h3>
 									</div>
-									<div class="card-body">
-										<form>
-											<div class="form-group">
-													<select class="form-control dispoDate">
-														<option selected disabled>Arrivée le :</option>
-													</select>
+									<div class="card-body row">
+										<div class="col-12">
+											<form>
+												<div class="form-group">
+														<select class="form-control dispoDate">
+															<option selected disabled>Arrivée le :</option>
+														</select>
+												</div>
+											</form>
+										</div>
+										<div class="col-4">
+											<div class="rounded-sm ml-2 p-3 bgDispo">
+												x
 											</div>
-										</form>
-										<ul>
+										</div>
+										<div class="col-4">
+											<div class="rounded-sm ml-1 mr-1 p-3 bgIndispo">
+												x
+											</div>
+										</div>
+										<div class="col-4">
+											<div class="rounded-sm mr-2 p-3 bgHorsSaison">
+												x
+											</div>
+										</div>
+									
+										<!-- <ul>
 											<li class="bgDispo">il n'y a plus de place disponible</li>
-											<li class="bgIndispo">il reste X produit(s) disponible(s)</li>
-											<li class="bgHorsSaison">hors saison</li>
-										</ul>	
+											<li class="bgIndispo rounded-sm">il reste X produit(s) disponible(s)</li>
+											<li class="bgHorsSaison rounded-sm">hors saison</li>
+										</ul>	 -->
 									</div>
 								</div>				
 							</div>
