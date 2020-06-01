@@ -102,6 +102,9 @@ function remplirTabPrix(tabPrix)
 		console.log(montant);
 		document.getElementsByClassName(classTab)[0].getElementsByTagName("span")[0].innerHTML = montant;
 		document.getElementsByClassName(classTab)[0].getElementsByTagName("button")[0].style.display = "none";
+		document.getElementsByClassName(classTab)[0].getElementsByTagName("button")[0].addEventListener("click", function (e) {
+			toastr.success('Hé, <b>ça marche !</b>', 'Test');
+		});
 	}
 
 }
@@ -352,5 +355,5 @@ document.getElementById('testAchat').addEventListener("click", function() {
 /*let root = document.documentElement;
   console.log(root.style.getPropertyValue('--aqua'));*/
   
-
+ // document.getElementById('testtoast').toast('show');
 

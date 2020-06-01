@@ -21,7 +21,19 @@
 		<!----<link rel="stylesheet" href="css/tp2_stylesheet_nospacks.css">--->
 		<!----<script type="text/javascript" src="js/lib/jquery-3.5.0.min.js"></script>--->
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+		<script type="text/javascript" src="js/bootstrap/bootstrap.js"></script>
 		<script type="text/javascript" src="js/bootstrap/bootstrap.bundle.min.js"></script>
+
+		<!-- TODO : installer version figées= de Toaster -->
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+		
+		
+	
+
 	</head>
 	
 	<body>
@@ -63,6 +75,7 @@
 				<img class="logoSocialHeader d-none d-lg-block" src="images/social/logo_social_square.png">
 			</nav>
 		</div>
+		
 		
 <!--------------------------------------------------PAGE----------------------------------------->
 		<div class="container maPage pb-5">
@@ -218,22 +231,22 @@
 											<th scope="row">Bungalow </th>
 											<td class="1s hauteSaison bungalow">
 												<span></span>
-												<button id='testAchat' type="button" class="btn revert btn-sm"><span class="fa fa-cart-plus fa-lg"></span></button>
+												<button id='testAchat' type="button" class="btn revert btn-sm show-toast"><span class="fa fa-cart-plus fa-lg"></span></button>
 												<p></p>
 											</td>
 											<td class="1s basseSaison bungalow">
 												<span></span>
-												<button type="button" class="btn revert btn-sm"><span class="fa fa-cart-plus fa-lg"></span></button>
+												<button type="button" class="btn revert btn-sm show-toast"><span class="fa fa-cart-plus fa-lg"></span></button>
 												<p></p>
 											</td>
 											<td class="2s hauteSaison bungalow">
 												<span></span>
-												<button type="button" class="btn revert btn-sm"><span class="fa fa-cart-plus fa-lg"></span></button>
+												<button type="button" class="btn revert btn-sm show-toast"><span class="fa fa-cart-plus fa-lg"></span></button>
 												<p></p>
 											</td>
 											<td class="2s basseSaison bungalow">
 												<span></span>
-												<button type="button" class="btn revert btn-sm"><span class="fa fa-cart-plus fa-lg"></span></button>
+												<button type="button" class="btn revert btn-sm show-toast"><span class="fa fa-cart-plus fa-lg"></span></button>
 												<p></p>
 											</td>
 										</tr>
@@ -242,22 +255,22 @@
 											<th scope="row">Chambre </th>
 											<td class="1s hauteSaison chambre">
 												<span></span>
-												<button type="button" class="btn revert btn-sm"><span class="fa fa-cart-plus fa-lg"></span></button>
+												<button type="button" class="btn revert btn-sm  show-toast"><span class="fa fa-cart-plus fa-lg"></span></button>
 												<p></p>
 											</td>
 											<td class="1s basseSaison chambre">
 												<span></span>
-												<button type="button" class="btn revert btn-sm"><span class="fa fa-cart-plus fa-lg"></span></button>
+												<button type="button" class="btn revert btn-sm  show-toast"><span class="fa fa-cart-plus fa-lg"></span></button>
 												<p></p>
 											</td>
 											<td class="2s hauteSaison chambre">
 												<span></span>
-												<button type="button" class="btn revert btn-sm"><span class="fa fa-cart-plus fa-lg"></span></button>
+												<button type="button" class="btn revert btn-sm show-toast"><span class="fa fa-cart-plus fa-lg"></span></button>
 												<p></p>
 											</td>
 											<td class="2s basseSaison chambre">
 												<span></span>
-												<button type="button" class="btn revert btn-sm"><span class="fa fa-cart-plus fa-lg"></span></button>
+												<button type="button" class="btn revert btn-sm show-toast"><span class="fa fa-cart-plus fa-lg"></span></button>
 												<p></p>
 											</td>
 										</tr>
@@ -265,23 +278,23 @@
 											<th scope="row">Lit </th>
 											<td class="1s hauteSaison lit">
 												<span></span>
-												<button type="button" class="btn revert btn-sm"><span class="fa fa-cart-plus fa-lg"></span></button>
+												<button type="button" class="btn revert btn-sm show-toast"><span class="fa fa-cart-plus fa-lg"></span></button>
 												<p></p>
 											</td>
 											<td class="1s basseSaison lit">
 												<span></span>
-												<button type="button" class="btn revert btn-sm"><span class="fa fa-cart-plus fa-lg"></span></button>
+												<button type="button" class="btn revert btn-sm show-toast"><span class="fa fa-cart-plus fa-lg"></span></button>
 												<p></p>
 											</td>
 											<td class="2s hauteSaison lit">
 												<span></span>
-												<button type="button" class="btn revert btn-sm"><span class="fa fa-cart-plus fa-lg"></span></button>
+												<button type="button" class="btn revert btn-sm show-toast"><span class="fa fa-cart-plus fa-lg"></span></button>
 												<p></p>
 											</td>
 											<td class="2s basseSaison lit">
 												<span></span>
 												<button type="button" class="btn  revert btn-sm">
-													<span class="fa fa-cart-plus fa-lg"></span>
+													<button type="button" class="btn revert btn-sm show-toast"><span class="fa fa-cart-plus fa-lg"></span></button>
 												</button>
 												<p></p>
 											</td>
@@ -325,6 +338,7 @@
 					</div>
 				</div>
 			</div>
+
 
 			<div id="carousel" class="row pt-5 mt-5 mb-5">
 				<div class="col-12 text-center">
@@ -407,6 +421,7 @@
 						<li><hr></li>
 						<li><a href="moozsurf@gmail.com">moozsurf@gmail.com</a></li>
 						<li>Motu de Temae, Teavaro, Polynésie française</li>
+						
 					</ul>
 				</div>
 			</div>
@@ -418,6 +433,16 @@
 		<script src="js/prixData.js"></script>
 		<script src="js/surfPackData.js"></script>
 		<script src="js/surf.js"></script>
+
+		<script>
+			
+
+
+
+			/*$(function() {
+		 toastr.success('Hé, <b>ça marche !</b>', 'Test');
+	});*/
+		</script>
 	</body>
 
 </html>
