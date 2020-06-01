@@ -63,15 +63,15 @@ var dispo = new Array(
 	saison : 'HS',
 	bungalow : 0,
 	chambre : 1,
-	lit : 6
+	lit : 2
 },
 {
 	debut : '25/07/2020',
 	fin : '01/08/2020',
 	saison : 'HS',
-	bungalow : 2,
-	chambre : 1,
-	lit : 6
+	bungalow : 1,
+	chambre : 0,
+	lit : 3
 }, 
 {
 	debut : '01/08/2020',

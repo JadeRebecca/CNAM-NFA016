@@ -40,18 +40,18 @@ document.getElementById('produit').style.display = "none";
 
 //evenements au survol du tableau (indépendant du package choisi)
 document.getElementById("bungalow").addEventListener("mouseover", function() {
-	document.getElementsByClassName("imgDynamique")[0].setAttribute("src", "imagetp2/photo/bungalow.jpg");
+	document.getElementsByClassName("imgDynamique")[0].setAttribute("src", "images/photo/bungalow.jpg");
 });
 
 document.getElementById("chambre").addEventListener("mouseover", function() {
-	document.getElementsByClassName("imgDynamique")[0].setAttribute("src", "imagetp2/photo/chambre.jpg");
+	document.getElementsByClassName("imgDynamique")[0].setAttribute("src", "images/photo/chambre.jpg");
 });
 document.getElementById("lit").addEventListener("mouseover", function() {
-	document.getElementsByClassName("imgDynamique")[0].setAttribute("src", "imagetp2/photo/lit.jpg");
+	document.getElementsByClassName("imgDynamique")[0].setAttribute("src", "images/photo/lit.jpg");
 });
 //evenement à la sortie du survol du tableau
 document.getElementById("tablePrix").addEventListener("mouseout", function( event ) {   
-  	document.getElementsByClassName("imgDynamique")[0].setAttribute("src", "imagetp2/packs/pack_debutant.jpg");
+  	document.getElementsByClassName("imgDynamique")[0].setAttribute("src", "images/packs/pack_debutant.jpg");
 });
 
 //remplissage de la liste des dates de dispo (indépendant du package choisi)
@@ -75,6 +75,12 @@ surfPack.forEach(function(item){
 		document.getElementById('carousel').style.display = "none";
 		//rend visible la fiche produit
 		document.getElementById('produit').style.display = "block";
+		
+		//mise à jour du menu
+		resetClassMenu(); //désactive tous les éléments du menu
+		let classTempo = item.classEl+' menuItem';
+		document.getElementsByClassName(classTempo)[0].classList.add("active");
+		
 		})
 	}
 });
@@ -305,18 +311,27 @@ $(function () {
 	  document.getElementById('button1').style.color="#356E99";
   }
 
-//reload de la page si clique sur tous les packages ("Nos packs")
+//update de la page si clique sur tous les packages ("Nos packs")
 var el = document.getElementsByClassName("nosPacks");
 for( var i=0; i<el.length; i++){
+	console.log(i);
 	el[i].addEventListener("click", function() {
-		//console.log("avant  "+this.className);
-		this.className+= " active ";
-		//console.log("apres : "+this.className);
+		resetClassMenu();
+		console.log("liste des classe :"+this.classList);
+		document.getElementsByClassName("menuItem nosPacks")[0].classList.add("active");
 		document.getElementById('produit').style.display = "none";
 		document.getElementById('carousel').style.display = "block";
-		//document.location.reload(true);
 	})
 }
+
+//reset des classes du menu
+function resetClassMenu() {
+	var elClassChange = document.getElementsByClassName('menuItem');
+	for( var i=0; i<elClassChange.length; i++){
+		elClassChange[i].classList.remove("active");
+	}
+}
+
 
 
 //******EVOLUTIONS******* */	
