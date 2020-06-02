@@ -99,12 +99,13 @@ function remplirTabPrix(tabPrix)
 	for( var i=0; i<tabPrix.length; i++){
 		classTab = tabPrix[i].logement+" "+tabPrix[i].duree+" "+tabPrix[i].saison;
 		montant = Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(tabPrix[i].montant);
-		console.log(montant);
+		//console.log(montant);
 		document.getElementsByClassName(classTab)[0].getElementsByTagName("span")[0].innerHTML = montant;
 		document.getElementsByClassName(classTab)[0].getElementsByTagName("button")[0].style.display = "none";
-		document.getElementsByClassName(classTab)[0].getElementsByTagName("button")[0].addEventListener("click", function (e) {
+		console.log("classes : "+classTab);
+		/*document.getElementsByClassName(classTab)[0].getElementsByTagName("button")[0].addEventListener("click", function (e) {
 			toastr.success('Hé, <b>ça marche !</b>', 'Test');
-		});
+		});*/
 	}
 
 }
@@ -204,7 +205,7 @@ document.getElementsByClassName("dispoDate")[0].addEventListener("input", functi
 				elt2s[j].style.backgroundColor = "#659E7D";
 				elt2s[j].getElementsByTagName("button")[0].style.display = "inline";
 				elt2s[j].getElementsByTagName("p")[0].innerHTML = "plus que "+nbDispo+" bungalow(s) disponible(s) ["+dispo[sem].bungalow+","+dispo[semSuivante].bungalow+"]";
-				console.log("dispo 2 semaines");
+				//console.log("dispo 2 semaines");
 			}
 		}
 	}
@@ -277,7 +278,7 @@ document.getElementsByClassName("dispoDate")[0].addEventListener("input", functi
 				elt2s[j].style.backgroundColor = "#659E7D";
 				elt2s[j].getElementsByTagName("button")[0].style.display = "inline";
 				elt2s[j].getElementsByTagName("p")[0].innerHTML = "plus que "+nbDispo+" lit(s) disponible(s) ["+dispo[sem].lit+","+dispo[semSuivante].lit+"]";
-				console.log("dispo 2 semaines");
+				//console.log("dispo 2 semaines");
 			}
 		}
 	}
@@ -322,10 +323,10 @@ $(function () {
 //update de la page si clique sur tous les packages ("Nos packs")
 var el = document.getElementsByClassName("nosPacks");
 for( var i=0; i<el.length; i++){
-	console.log(i);
+	//console.log(i);
 	el[i].addEventListener("click", function() {
 		resetClassMenu();
-		console.log("liste des classe :"+this.classList);
+		//console.log("liste des classe :"+this.classList);
 		document.getElementsByClassName("menuItem nosPacks")[0].classList.add("active");
 		document.getElementById('produit').style.display = "none";
 		document.getElementById('carousel').style.display = "block";
