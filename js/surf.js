@@ -1,5 +1,6 @@
 //variables
 var nbArticle = 0;
+var urlPhoto =  'images/packs/pack1.png';
 
 /*********************             CARTE PRESENTATION DES PACKAGES     ************************************/
 var cartes = document.getElementsByClassName('presaPackSingle');
@@ -54,7 +55,7 @@ document.getElementById("lit").addEventListener("mouseover", function() {
 });
 //evenement à la sortie du survol du tableau
 document.getElementById("tablePrix").addEventListener("mouseout", function( event ) {   
-  	document.getElementsByClassName("imgDynamique")[0].setAttribute("src", "images/packs/pack_debutant.jpg");
+  	document.getElementsByClassName("imgDynamique")[0].setAttribute("src", urlPhoto);
 });
 
 //remplissage de la liste des dates de dispo (indépendant du package choisi)
@@ -72,6 +73,7 @@ surfPack.forEach(function(item){
 		document.getElementById('packSubTitle').innerHTML = item.sousTitre;
 		document.getElementById('packDescription').innerHTML = item.description;
 		document.getElementsByClassName("imgDynamique")[0].setAttribute("src", item.photo);
+		urlPhoto = item.photo;
 		//remplissage tableau des prix
 		remplirTabPrix(item.prix);
 		//cache le carousel
