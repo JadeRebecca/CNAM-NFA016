@@ -82,7 +82,7 @@ body{
 
 .footerTitle{
 	font-size: 28px;
-	font-family: 'Permanent Marker', cursive;
+	font-family: 'Amatic SC', cursive;
 	color:var(--brown-granite);
 }
 
@@ -139,7 +139,7 @@ body{
 }
 .packSubTitle{
 	font-size: 28px;
-	font-family: 'Permanent Marker', cursive;
+	font-family: 'Amatic SC', cursive;
 	color: var(--brown-granite);
 	
 }
@@ -193,20 +193,20 @@ button.revert{
 /*************************override bootstrap***********************************/
 h1{
 	color: var(--cream);
-	font-family: 'Permanent Marker', cursive;
+	font-family: 'Amatic SC', cursive;
 	font-weight: bold;
 }
 h2{	
 	font-size: 28px;
 	color:var(--cream);
-	font-family: 'Permanent Marker', cursive;
+	font-family: 'Amatic SC', cursive;
 	font-weight: bold;
 	text-align: center;
 }
 h3{
 	font-size: 22px;
 	color:var(--cream);
-	font-family: 'Permanent Marker', cursive;
+	font-family: 'Amatic SC', cursive;
 }
 
 .btn-warning {
