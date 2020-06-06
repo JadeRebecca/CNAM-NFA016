@@ -2,28 +2,28 @@
 //contient tous les prix du tableau pack1 = pack coaching
 var prixPack1 = new Array(
     {
-        montant : 420,
+        montant : 720,
         saison : 'hauteSaison',
         duree : '1s',
         logement : 'bungalow',
         pack : 'coaching'
     }, 
     {
-        montant : 300,
+        montant : 600,
         saison : 'basseSaison',
         duree : '1s',
         logement : 'bungalow',
         pack : 'coaching'
     },
     {
-        montant : 720,
+        montant : 1020,
         saison : 'hauteSaison',
         duree : '2s',
         logement : 'bungalow',
         pack : 'coaching'
     }, 
     {
-        montant : 480,
+        montant : 780,
         saison : 'basseSaison',
         duree : '2s',
         logement : 'bungalow',
@@ -31,56 +31,56 @@ var prixPack1 = new Array(
     }
     ,
     {
-        montant : 350,
+        montant : 650,
         saison : 'hauteSaison',
         duree : '1s',
         logement : 'chambre',
         pack : 'coaching'
     }, 
     {
-        montant : 245,
+        montant : 545,
         saison : 'basseSaison',
         duree : '1s',
         logement : 'chambre',
         pack : 'coaching'
     },
     {
-        montant : 595,
+        montant : 895,
         saison : 'hauteSaison',
         duree : '2s',
         logement : 'chambre',
+        pack : 'coaching'
+    }, 
+    {
+        montant : 700,
+        saison : 'basseSaison',
+        duree : '2s',
+        logement : 'chambre',
+        pack : 'coaching'
+    },
+    {
+        montant : 440,
+        saison : 'hauteSaison',
+        duree : '1s',
+        logement : 'lit',
         pack : 'coaching'
     }, 
     {
         montant : 400,
         saison : 'basseSaison',
-        duree : '2s',
-        logement : 'chambre',
-        pack : 'coaching'
-    },
-    {
-        montant : 140,
-        saison : 'hauteSaison',
-        duree : '1s',
-        logement : 'lit',
-        pack : 'coaching'
-    }, 
-    {
-        montant : 100,
-        saison : 'basseSaison',
         duree : '1s',
         logement : 'lit',
         pack : 'coaching'
     },
     {
-        montant : 240,
+        montant : 540,
         saison : 'hauteSaison',
         duree : '2s',
         logement : 'lit',
         pack : 'coaching'
     }, 
     {
-        montant : 160,
+        montant : 460,
         saison : 'basseSaison',
         duree : '2s',
         logement : 'lit',
@@ -92,28 +92,28 @@ var prixPack1 = new Array(
 //contient tous les prix du tableau pack2 = pack trip
 var prixPack2 = new Array(
     {
-        montant : 0,
+        montant : 630,
         saison : 'hauteSaison',
         duree : '1s',
         logement : 'bungalow',
         pack : 'trip'
     }, 
     {
-        montant : 300,
+        montant : 510,
         saison : 'basseSaison',
         duree : '1s',
         logement : 'bungalow',
         pack : 'trip'
     },
     {
-        montant : 720,
+        montant : 930,
         saison : 'hauteSaison',
         duree : '2s',
         logement : 'bungalow',
         pack : 'trip'
     }, 
     {
-        montant : 480,
+        montant : 690,
         saison : 'basseSaison',
         duree : '2s',
         logement : 'bungalow',
@@ -121,28 +121,28 @@ var prixPack2 = new Array(
     }
     ,
     {
-        montant : 350,
+        montant : 560,
         saison : 'hauteSaison',
         duree : '1s',
         logement : 'chambre',
         pack : 'trip'
     }, 
     {
-        montant : 245,
+        montant : 455,
         saison : 'basseSaison',
         duree : '1s',
         logement : 'chambre',
         pack : 'trip'
     },
     {
-        montant : 595,
+        montant : 805,
         saison : 'hauteSaison',
         duree : '2s',
         logement : 'chambre',
         pack : 'trip'
     }, 
     {
-        montant : 400,
+        montant : 610,
         saison : 'basseSaison',
         duree : '2s',
         logement : 'chambre',
@@ -150,28 +150,28 @@ var prixPack2 = new Array(
     },
     
     {
-        montant : 140,
+        montant : 350,
         saison : 'hauteSaison',
         duree : '1s',
         logement : 'lit',
         pack : 'trip'
     }, 
     {
-        montant : 100,
+        montant : 310,
         saison : 'basseSaison',
         duree : '1s',
         logement : 'lit',
         pack : 'trip'
     },
     {
-        montant : 240,
+        montant : 450,
         saison : 'hauteSaison',
         duree : '2s',
         logement : 'lit',
         pack : 'trip'
     }, 
     {
-        montant : 160,
+        montant : 370,
         saison : 'basseSaison',
         duree : '2s',
         logement : 'lit',
@@ -184,28 +184,28 @@ var prixPack2 = new Array(
 
 var prixPack3 = new Array(
     {
-        montant : 1000,
+        montant : 420,
         saison : 'hauteSaison',
         duree : '1s',
         logement : 'bungalow',
         pack : 'free'
     }, 
     {
-        montant : 1,
+        montant : 300,
         saison : 'basseSaison',
         duree : '1s',
         logement : 'bungalow',
         pack : 'free'
     },
     {
-        montant : 2000,
+        montant : 720,
         saison : 'hauteSaison',
         duree : '2s',
         logement : 'bungalow',
         pack : 'free'
     }, 
     {
-        montant : 2,
+        montant : 480,
         saison : 'basseSaison',
         duree : '2s',
         logement : 'bungalow',

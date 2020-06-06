@@ -1,6 +1,7 @@
 //variables
 var nbArticle = 0;
 var urlPhoto =  '';
+var sem ='';
 
 /*********************             CARTES PRESENTATION DES PACKAGES     ************************************/
 var cartes = document.getElementsByClassName('presaPackSingle');
@@ -36,18 +37,18 @@ for(var i = 0;i < cartes.length;i++){
 
 /********************           INIT DE LA FICHE DU PRODUIT ******************************/
 //initialement non visible
-document.getElementById('produit').style.display = "none";
+document.getElementById('detailPack').style.display = "none";
 
 //evenements au survol du tableau des prix (indépendant du package choisi)
 document.getElementById("bungalow").addEventListener("mouseover", function() {
-	document.getElementsByClassName("imgDynamique")[0].setAttribute("src", "images/photo/bungalow.jpg");
+	document.getElementsByClassName("imgDynamique")[0].setAttribute("src", "images/photo/hebergement/bungalow.jpg");
 });
 
 document.getElementById("chambre").addEventListener("mouseover", function() {
-	document.getElementsByClassName("imgDynamique")[0].setAttribute("src", "images/photo/chambre.jpg");
+	document.getElementsByClassName("imgDynamique")[0].setAttribute("src", "images/photo/hebergement/chambre.jpg");
 });
 document.getElementById("lit").addEventListener("mouseover", function() {
-	document.getElementsByClassName("imgDynamique")[0].setAttribute("src", "images/photo/lit.jpg");
+	document.getElementsByClassName("imgDynamique")[0].setAttribute("src", "images/photo/hebergement/lit.jpg");
 });
 //evenement à la sortie du survol du tableau des prix
 document.getElementById("tablePrix").addEventListener("mouseout", function( event ) {   
@@ -78,7 +79,7 @@ surfPackData.forEach(function(item){
 			//cache le carousel
 			document.getElementById('carousel').style.display = "none";
 			//rend visible la fiche produit
-			document.getElementById('produit').style.display = "block";
+			document.getElementById('detailPack').style.display = "block";
 			
 			//mise à jour du menu
 			resetClassMenu(); //désactive tous les éléments du menu
@@ -100,11 +101,13 @@ function remplirTabPrix(tabPrix)
 		classTab = tabPrix[i].logement+" "+tabPrix[i].duree+" "+tabPrix[i].saison;
 		montant = Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(tabPrix[i].montant);
 		document.getElementsByClassName(classTab)[0].getElementsByTagName("span")[0].innerHTML = montant;
-		document.getElementsByClassName(classTab)[0].getElementsByTagName("button")[0].style.display = "none";
+		if(sem ===''){
+			document.getElementsByClassName(classTab)[0].getElementsByTagName("button")[0].style.display = "none";
+		}
 		
-		/*document.getElementsByClassName(classTab)[0].getElementsByTagName("button")[0].addEventListener("click", function (e) {
-			toastr.success('Hé, <b>ça marche !</b>', 'Test');
-		});*/
+		document.getElementsByClassName(classTab)[0].getElementsByTagName("button")[0].addEventListener("click", function (e) {
+			ajoutPanier();
+		});
 	}
 
 }
@@ -113,7 +116,7 @@ function remplirTabPrix(tabPrix)
 /**********************      DISPONIBILITES               **************************************************/
 /***ajout des éléments dans la liste des dates de dispo avec les data contenues dans les attribut de l'object dispoData*/
 function remplirDateDispo(){
-	for( var i=0; i<dispoData.length; i++){
+	for( var i=0; i<dispoData.length -1; i++){
 		var dateDispo = document.createElement("option"); // Création d'un élément li
 		dateDispo.id = i; 
 		dateDispo.value = i; 
@@ -125,11 +128,9 @@ function remplirDateDispo(){
 
 /***event si l'utilisateur choisit une date  ---->  mise à jour dynamique des propriétés des cases du tableau (background + contenu)*****/
 document.getElementsByClassName("dispoDate")[0].addEventListener("input", function (e) {
-    var sem = e.target.value; // valeur choisi dans la liste déroulant
+    sem = e.target.value; // valeur choisi dans la liste déroulante
 	var semSuivante = parseInt(sem)+1;
 	var saisonClassAffiche = '';
-	var saisonClasseCache = '';
-	var elt;
 	var nbDispo=0;
 	//1- on cache les prix hors saison
 	var eltTitreSaison = document.getElementsByClassName('titreSaison'); 
@@ -162,8 +163,6 @@ document.getElementsByClassName("dispoDate")[0].addEventListener("input", functi
 	}
 
 	//2-pour chaque produit (bungalow, chambre, lit), on adapte le backgroundColor selon la dispo
-
-	//objet contenant les produits
 	const produit = ['bungalow','chambre','lit'];
 
 	produit.forEach(function(el){
@@ -176,32 +175,37 @@ document.getElementsByClassName("dispoDate")[0].addEventListener("input", functi
 			//fond rouge pour le bungalow + pas de bouton
 			//si semaine1 pas dispo, produit pas dispo
 			for (var j = 0 ; j < elt1s.length ; j++) {
-				elt1s[j].style.backgroundColor = "#E93163";
-				elt1s[j].getElementsByTagName("button")[0].style.display = "none";
+				elt1s[j].className = elt1s[j].className.replace( /(?:^|\s)dispo(?!\S)/g , "" )
+				elt1s[j].className += " indispo";
+				elt1s[j].getElementsByTagName("span")[1].getElementsByTagName("button")[0].style.display = "none";
 				elt1s[j].getElementsByTagName("p")[0].innerHTML = "";
-				elt2s[j].style.backgroundColor = "#E93163";
-				elt2s[j].getElementsByTagName("button")[0].style.display = "none";
+				elt2s[j].className = elt2s[j].className.replace( /(?:^|\s)dispo(?!\S)/g , "" )
+				elt2s[j].className += " indispo";
+				elt2s[j].getElementsByTagName("span")[1].getElementsByTagName("button")[0].style.display = "none";
 				elt2s[j].getElementsByTagName("p")[0].innerHTML = "";
 			}
 		}
 		else{
 			//fond vert + afficher le nombre de place restante + bouton achat
 			for (var j = 0 ; j < elt1s.length ; j++) {
-				elt1s[j].style.backgroundColor = "#659E7D";
-				elt1s[j].getElementsByTagName("button")[0].style.display = "inline";
-				elt1s[j].getElementsByTagName("p")[0].innerHTML = "plus que "+dispoData[sem][nomProduit]+" "+nomProduit+"(s) disponible(s)";
+				elt1s[j].className = elt1s[j].className.replace( /(?:^|\s)indispo(?!\S)/g , "" )
+				elt1s[j].className += " dispo";
+				elt1s[j].getElementsByTagName("span")[1].getElementsByTagName("button")[0].style.display = "inline";
+				elt1s[j].getElementsByTagName("p")[0].innerHTML = dispoData[sem][nomProduit]+" dispo.";
 			}
 			for (var j = 0 ; j < elt2s.length ; j++) {
 				if(dispoData[semSuivante][nomProduit] <1){
-					elt2s[j].style.backgroundColor = "#E93163";
-					elt2s[j].getElementsByTagName("button")[0].style.display = "none";
+					elt2s[j].className = elt2s[j].className.replace( /(?:^|\s)dispo(?!\S)/g , "" )
+					elt2s[j].className += " indispo";
+					elt2s[j].getElementsByTagName("span")[1].getElementsByTagName("button")[0].style.display = "none";
 					elt2s[j].getElementsByTagName("p")[0].innerHTML = "";
 				}
 				else{
-					nbDispo = (Math.min(dispoData[nomProduit], dispoData[semSuivante][nomProduit]));
-					elt2s[j].style.backgroundColor = "#659E7D";
-					elt2s[j].getElementsByTagName("button")[0].style.display = "inline";
-					elt2s[j].getElementsByTagName("p")[0].innerHTML = "plus que "+nbDispo+" "+nomProduit+"(s) disponible(s)";
+					nbDispo = (Math.min(dispoData[sem][nomProduit], dispoData[semSuivante][nomProduit]));
+					elt2s[j].className = elt2s[j].className.replace( /(?:^|\s)indispo(?!\S)/g , "" )
+					elt2s[j].className += " dispo";
+					elt2s[j].getElementsByTagName("span")[1].getElementsByTagName("button")[0].style.display = "inline";
+					elt2s[j].getElementsByTagName("p")[0].innerHTML = nbDispo+" dispo.";
 				}
 			}
 		}
@@ -221,7 +225,7 @@ for( var i=0; i<el.length; i++){
 	el[i].addEventListener("click", function() {
 		resetClassMenu();
 		document.getElementsByClassName("menuItem nosPacks")[0].classList.add("active");
-		document.getElementById('produit').style.display = "none";
+		document.getElementById('detailPack').style.display = "none";
 		document.getElementById('carousel').style.display = "block";
 	})
 }
@@ -234,20 +238,7 @@ function resetClassMenu() {
 	}
 }
 
-/**** TODO ajout d'un produit au panier */
-document.getElementById('testAchat').addEventListener("click", function() {	
+function ajoutPanier(){
 	nbArticle++;
-	console.log("ajouté au panier ! "+nbArticle+" articles");
-})
-
-//******EVOLUTIONS******* */	
-//to do : ajouter le nb de pdt dispo. Stocker les prix dans un tableau avant.
-//to do : addEventListener sur le bouton pour ouvrir une popin qui demande si on veut ajouter ce produit à notre panier
-//ajouter une icone panier dans le header avec le nombre de produit mis au panier
-//to do :créer un .js pour stocker les data du tableau (price) et générer dynamiquement le tableau
-//quand le tableau sera fini, ajouter un bouton "+ pension complete"
-/*let root = document.documentElement;
-  console.log(root.style.getPropertyValue('--aqua'));*/
-  
- // document.getElementById('testtoast').toast('show');
-
+	toastr.success('Votre panier contient '+nbArticle+' article(s)', 'Le pack a été ajouté à votre panier !');
+}

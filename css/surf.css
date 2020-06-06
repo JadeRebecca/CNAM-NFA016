@@ -16,7 +16,7 @@
 
 /*.un {
   color: white;
-  background-color: var(--main-bg-color);
+  background-color: var(--main-bg-color);find
   margin: 10px;
   width: 50px;
   height: 50px;
@@ -148,21 +148,29 @@ body{
 	border-color: var(--cream);
 }
 
-.bgred{
-	background-color: var(--tropical);
+.blue{
+	color: var(--aqua);
 }
-.bgDispo{
-	background-color: var(--tropical);
+.legendIndispo{
+	color: var(--tropical);
+	font-size: 48px;
+	opacity: 0.7;
 }
-.bgIndispo{
+.legendDispo{
+	color: var(--green-element);
+	font-size: 48px;
+}
+.dispo{
 	background-color: var(--green-element);
+	font-weight: bold;
 }
-.bgHorsSaison{
-	background-color: var(--grey-middle);
+.indispo{
+	background-color: var(--tropical);
+	font-weight: normal;
+	opacity: 0.7;
 }
 
-
-.h2bis{
+.h2{
 	color: var(--aqua);
 	
 }
