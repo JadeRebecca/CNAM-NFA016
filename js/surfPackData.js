@@ -1,5 +1,5 @@
 //objet info fiche produit
-var surfPack = new Array(
+var surfPackData = new Array(
     {
         name : 'pack1',
         idButton : 'pack1',

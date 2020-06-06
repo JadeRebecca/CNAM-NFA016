@@ -1,21 +1,17 @@
 //variables
 var nbArticle = 0;
-var urlPhoto =  'images/packs/pack1.png';
+var urlPhoto =  '';
 
-/*********************             CARTE PRESENTATION DES PACKAGES     ************************************/
+/*********************             CARTES PRESENTATION DES PACKAGES     ************************************/
 var cartes = document.getElementsByClassName('presaPackSingle');
-
+//au survol de la carte : changement de style du titre et du bouton
 for(var i = 0;i < cartes.length;i++){
-//console.log(i);
   cartes[i].addEventListener("mouseover", function() {
-		//couleur de fond
-         this.style.backgroundColor="#fefefe";
-		 //couleur du titre		 
+         this.style.backgroundColor="#fefefe"; 
 		 var titres = this.querySelectorAll('h2');
 		 for(var j = 0;j < titres.length;j++){
 			titres[j].style.color="#F4B52E";
 		 }
-		 //couleur du bouton
 		 var buttons = this.querySelectorAll('button');
 		 for(var j = 0;j < buttons.length;j++){
 			buttons[j].style.backgroundColor="#356E99";
@@ -38,11 +34,11 @@ for(var i = 0;i < cartes.length;i++){
   });
 }
 
-/********************INIT DE LA FICHE DU PRODUIT******************************/
+/********************           INIT DE LA FICHE DU PRODUIT ******************************/
 //initialement non visible
 document.getElementById('produit').style.display = "none";
 
-//evenements au survol du tableau (indépendant du package choisi)
+//evenements au survol du tableau des prix (indépendant du package choisi)
 document.getElementById("bungalow").addEventListener("mouseover", function() {
 	document.getElementsByClassName("imgDynamique")[0].setAttribute("src", "images/photo/bungalow.jpg");
 });
@@ -53,7 +49,7 @@ document.getElementById("chambre").addEventListener("mouseover", function() {
 document.getElementById("lit").addEventListener("mouseover", function() {
 	document.getElementsByClassName("imgDynamique")[0].setAttribute("src", "images/photo/lit.jpg");
 });
-//evenement à la sortie du survol du tableau
+//evenement à la sortie du survol du tableau des prix
 document.getElementById("tablePrix").addEventListener("mouseout", function( event ) {   
   	document.getElementsByClassName("imgDynamique")[0].setAttribute("src", urlPhoto);
 });
@@ -64,35 +60,37 @@ remplirDateDispo();
 
 
 /********************AFFICHAGE DE LA FICHE DU PRODUIT******************************/
-
-surfPack.forEach(function(item){
+//pour chaque object du tableau surfPack
+surfPackData.forEach(function(item){
+	//chaque objet du tableau surfPack a un attribut classEl qui contient le nom de la classe du bouton CTA permettant de sélectionner un package pour afficher sa fiche
 	var el = document.getElementsByClassName(item.classEl);
+	//pour chaque élément de la classe
 	for( var i=0; i<el.length; i++){
 		el[i].addEventListener("click", function() {
-		document.getElementById('ancre').innerHTML = item.titre;
-		document.getElementById('packSubTitle').innerHTML = item.sousTitre;
-		document.getElementById('packDescription').innerHTML = item.description;
-		document.getElementsByClassName("imgDynamique")[0].setAttribute("src", item.photo);
-		urlPhoto = item.photo;
-		//remplissage tableau des prix
-		remplirTabPrix(item.prix);
-		//cache le carousel
-		document.getElementById('carousel').style.display = "none";
-		//rend visible la fiche produit
-		document.getElementById('produit').style.display = "block";
-		
-		//mise à jour du menu
-		resetClassMenu(); //désactive tous les éléments du menu
-		let classTempo = item.classEl+' menuItem';
-		document.getElementsByClassName(classTempo)[0].classList.add("active");
-		
+			//remplissage de la fiche produit
+			document.getElementById('ancre').innerHTML = item.titre;
+			document.getElementById('packSubTitle').innerHTML = item.sousTitre;
+			document.getElementById('packDescription').innerHTML = item.description;
+			document.getElementsByClassName("imgDynamique")[0].setAttribute("src", item.photo);
+			urlPhoto = item.photo;
+			//remplissage tableau des prix
+			remplirTabPrix(item.prix);
+			//cache le carousel
+			document.getElementById('carousel').style.display = "none";
+			//rend visible la fiche produit
+			document.getElementById('produit').style.display = "block";
+			
+			//mise à jour du menu
+			resetClassMenu(); //désactive tous les éléments du menu
+			let classTempo = item.classEl+' menuItem';
+			document.getElementsByClassName(classTempo)[0].classList.add("active"); //active l'élément du menu correspondant au package sélectionné
 		})
 	}
 });
 
 
 
-/*****************TABLEAU DES PRIX*********************************************/
+/***************** TABLEAU DES PRIX*********************************************/
 function remplirTabPrix(tabPrix)
 {
 	var classTab = '';
@@ -101,10 +99,9 @@ function remplirTabPrix(tabPrix)
 	for( var i=0; i<tabPrix.length; i++){
 		classTab = tabPrix[i].logement+" "+tabPrix[i].duree+" "+tabPrix[i].saison;
 		montant = Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(tabPrix[i].montant);
-		//console.log(montant);
 		document.getElementsByClassName(classTab)[0].getElementsByTagName("span")[0].innerHTML = montant;
 		document.getElementsByClassName(classTab)[0].getElementsByTagName("button")[0].style.display = "none";
-		console.log("classes : "+classTab);
+		
 		/*document.getElementsByClassName(classTab)[0].getElementsByTagName("button")[0].addEventListener("click", function (e) {
 			toastr.success('Hé, <b>ça marche !</b>', 'Test');
 		});*/
@@ -114,14 +111,13 @@ function remplirTabPrix(tabPrix)
 
 
 /**********************      DISPONIBILITES               **************************************************/
-
-/***ajout des éléments dans la liste des dates de dispo*/
+/***ajout des éléments dans la liste des dates de dispo avec les data contenues dans les attribut de l'object dispoData*/
 function remplirDateDispo(){
-	for( var i=0; i<dispo.length; i++){
+	for( var i=0; i<dispoData.length; i++){
 		var dateDispo = document.createElement("option"); // Création d'un élément li
-		dateDispo.id = i; // Définition de son identifiant
-		dateDispo.value = i; // Définition de son identifiant
-		dateDispo.textContent = dispo[i].debut; // Définition de son contenu textuel
+		dateDispo.id = i; 
+		dateDispo.value = i; 
+		dateDispo.textContent = dispoData[i].debut; 
 		document.getElementsByClassName("dispoDate")[0].appendChild(dateDispo); // Insertion du nouvel élément
 	}
 }
@@ -131,204 +127,99 @@ function remplirDateDispo(){
 document.getElementsByClassName("dispoDate")[0].addEventListener("input", function (e) {
     var sem = e.target.value; // valeur choisi dans la liste déroulant
 	var semSuivante = parseInt(sem)+1;
-	var saison = '';
+	var saisonClassAffiche = '';
+	var saisonClasseCache = '';
 	var elt;
 	var nbDispo=0;
-    //1- on grise les produits hors saison
-	if(dispo[sem].saison == 'HS'){
-		saison = 'hauteSaison';
-		//fond gris pour les cases de la classe basseSaison + ne rien afficher
-		elt = document.getElementsByClassName("basseSaison"); 
-		for (var j = 0 ; j < elt.length ; j++) {
-			elt[j].style.backgroundColor = "#8F8F8F"; 
-			elt[j].getElementsByTagName("button")[0].style.display = "none";			
-		}
+	//1- on cache les prix hors saison
+	var eltTitreSaison = document.getElementsByClassName('titreSaison'); 
+	for (var j = 0 ; j < eltTitreSaison.length ; j++) {   
+		eltTitreSaison[j].style.display = "none";	
+	}
+	var eltTitreSemaine = document.getElementsByClassName('titreSemaine'); 
+	for (var j = 0 ; j < eltTitreSemaine.length ; j++) {   
+		eltTitreSemaine[j].colSpan = "2";
+		//eltTitreTarif[0].rowSpan = "1";			
+	}
+	var eltTitreTarif = document.getElementsByClassName('titreTarif'); 
+	eltTitreTarif[0].rowSpan = "1";	
+		
+	if(dispoData[sem].saison == 'HS'){
+		saisonClassAffiche = 'hauteSaison';
+		saisonClassCache = 'basseSaison';
 	}
 	else{
-		saison = 'basseSaison';
-		//fond gris pour les cases de la classe hauteSaison + ne rien afficher
-		elt = document.getElementsByClassName("hauteSaison"); 
-		for (var j = 0 ; j < elt.length ; j++) {
-			elt[j].style.backgroundColor = "#8F8F8F";   
-			elt[j].getElementsByTagName("button")[0].style.display = "none";			
-		}
+		saisonClassAffiche = 'basseSaison';
+		saisonClassCache = 'hauteSaison';
 	}
-	
+	eltAffiche = document.getElementsByClassName(saisonClassAffiche);
+	eltCache = document.getElementsByClassName(saisonClassCache); 
+	for (var j = 0 ; j < eltAffiche.length ; j++) {   
+		eltAffiche[j].style.display = "table-cell";	
+		eltAffiche[j].colSpan = "2";
+		eltCache[j].style.display = "none";	
+		
+	}
+
 	//2-pour chaque produit (bungalow, chambre, lit), on adapte le backgroundColor selon la dispo
-	
-	/*********************BUNGALOW**************************************************/
-	elt1s = document.getElementsByClassName(saison+" bungalow 1s"); 
-	elt2s = document.getElementsByClassName(saison+" bungalow 2s"); 
+
 	//objet contenant les produits
-	/*var produit = new Array(
-	{
-		id : 1,
-		nom : 'bungalow'
-	}, 
-	{
-		id : 2,
-		nom : 'chambre'
-	},
-	{
-		id : 3,
-		nom : 'lit'
-	}) ;*/
-//TODO EVOLUTION : faire une boucle sur les 3 produits pour minimiser le code
-	if(dispo[sem].bungalow <1){
-		//fond rouge pour le bungalow + pas de bouton
-		//si semaine1 pas dispo, produit pas dispo
-		for (var j = 0 ; j < elt1s.length ; j++) {
-			elt1s[j].style.backgroundColor = "#E93163";
-			elt1s[j].getElementsByTagName("button")[0].style.display = "none";
-			elt1s[j].getElementsByTagName("p")[0].innerHTML = "";
-			elt2s[j].style.backgroundColor = "#E93163";
-			elt2s[j].getElementsByTagName("button")[0].style.display = "none";
-			elt2s[j].getElementsByTagName("p")[0].innerHTML = "";
-		}
-		//console.log("ok"+dispo[sem].bungalow);
-	}
-	else{
-		//fond vert + afficher le nombre de place restante + bouton achat
-		for (var j = 0 ; j < elt1s.length ; j++) {
-			elt1s[j].style.backgroundColor = "#659E7D";
-			elt1s[j].getElementsByTagName("button")[0].style.display = "inline";
-			elt1s[j].getElementsByTagName("p")[0].innerHTML = "plus que "+dispo[sem].bungalow+" bungalow(s) disponible(s)";
-		}
-		for (var j = 0 ; j < elt2s.length ; j++) {
-			//console.log("semaine actuelle : "+sem+" // suivante : "+semSuivante+" "+dispo[semSuivante].bungalow);
-			if(dispo[semSuivante].bungalow <1){
+	const produit = ['bungalow','chambre','lit'];
+
+	produit.forEach(function(el){
+		var classe = saisonClassAffiche+" "+el;
+		var nomProduit = el;
+		elt1s = document.getElementsByClassName(classe+" 1s"); 
+		elt2s = document.getElementsByClassName(classe+" 2s"); 
+
+		if(dispoData[sem][nomProduit] <1){
+			//fond rouge pour le bungalow + pas de bouton
+			//si semaine1 pas dispo, produit pas dispo
+			for (var j = 0 ; j < elt1s.length ; j++) {
+				elt1s[j].style.backgroundColor = "#E93163";
+				elt1s[j].getElementsByTagName("button")[0].style.display = "none";
+				elt1s[j].getElementsByTagName("p")[0].innerHTML = "";
 				elt2s[j].style.backgroundColor = "#E93163";
 				elt2s[j].getElementsByTagName("button")[0].style.display = "none";
 				elt2s[j].getElementsByTagName("p")[0].innerHTML = "";
 			}
-			else{
-				nbDispo = (Math.min(dispo[sem].bungalow, dispo[semSuivante].bungalow));
-				//parseInt(dispo[sem].bungalow)-dispo[sem].bungalow;
-				elt2s[j].style.backgroundColor = "#659E7D";
-				elt2s[j].getElementsByTagName("button")[0].style.display = "inline";
-				elt2s[j].getElementsByTagName("p")[0].innerHTML = "plus que "+nbDispo+" bungalow(s) disponible(s) ["+dispo[sem].bungalow+","+dispo[semSuivante].bungalow+"]";
-				//console.log("dispo 2 semaines");
+		}
+		else{
+			//fond vert + afficher le nombre de place restante + bouton achat
+			for (var j = 0 ; j < elt1s.length ; j++) {
+				elt1s[j].style.backgroundColor = "#659E7D";
+				elt1s[j].getElementsByTagName("button")[0].style.display = "inline";
+				elt1s[j].getElementsByTagName("p")[0].innerHTML = "plus que "+dispoData[sem][nomProduit]+" "+nomProduit+"(s) disponible(s)";
+			}
+			for (var j = 0 ; j < elt2s.length ; j++) {
+				if(dispoData[semSuivante][nomProduit] <1){
+					elt2s[j].style.backgroundColor = "#E93163";
+					elt2s[j].getElementsByTagName("button")[0].style.display = "none";
+					elt2s[j].getElementsByTagName("p")[0].innerHTML = "";
+				}
+				else{
+					nbDispo = (Math.min(dispoData[nomProduit], dispoData[semSuivante][nomProduit]));
+					elt2s[j].style.backgroundColor = "#659E7D";
+					elt2s[j].getElementsByTagName("button")[0].style.display = "inline";
+					elt2s[j].getElementsByTagName("p")[0].innerHTML = "plus que "+nbDispo+" "+nomProduit+"(s) disponible(s)";
+				}
 			}
 		}
-	}
-	
-	/*********************CHAMBRE**************************************************/
-	elt1s = document.getElementsByClassName(saison+" chambre 1s"); 
-	elt2s = document.getElementsByClassName(saison+" chambre 2s"); 
-	
-	if(dispo[sem].chambre <1){
-		for (var j = 0 ; j < elt.length ; j++) {
-			elt1s[j].style.backgroundColor = "#E93163";
-			elt1s[j].getElementsByTagName("button")[0].style.display = "none";
-			elt1s[j].getElementsByTagName("p")[0].innerHTML = "";
-			elt2s[j].style.backgroundColor = "#E93163";
-			elt2s[j].getElementsByTagName("button")[0].style.display = "none";
-			elt2s[j].getElementsByTagName("p")[0].innerHTML = "";
-
-		}
-	}
-	else{
-		for (var j = 0 ; j < elt1s.length ; j++) {
-			elt1s[j].style.backgroundColor = "#659E7D";
-			elt1s[j].getElementsByTagName("button")[0].style.display = "inline";
-			elt1s[j].getElementsByTagName("p")[0].innerHTML = "plus que "+dispo[sem].chambre+" chambre(s) disponible(s)";
-		}
-		for (var j = 0 ; j < elt2s.length ; j++) {
-			if(dispo[semSuivante].chambre <1){
-				elt2s[j].style.backgroundColor = "#E93163";
-				elt2s[j].getElementsByTagName("button")[0].style.display = "none";
-				elt2s[j].getElementsByTagName("p")[0].innerHTML = "";
-			}
-			else{
-				nbDispo = (Math.min(dispo[sem].chambre, dispo[semSuivante].chambre));
-				elt2s[j].style.backgroundColor = "#659E7D";
-				elt2s[j].getElementsByTagName("button")[0].style.display = "inline";
-				elt2s[j].getElementsByTagName("p")[0].innerHTML = "plus que "+nbDispo+" chambre(s) disponible(s) ["+dispo[sem].chambre+","+dispo[semSuivante].chambre+"]";
-				//console.log("dispo 2 semaines");
-			}
-		}
-	}
-	/*********************LIT**************************************************/
-	elt1s = document.getElementsByClassName(saison+" lit 1s"); 
-	elt2s = document.getElementsByClassName(saison+" lit 2s"); 
-	
-	if(dispo[sem].lit <1){
-		for (var j = 0 ; j < elt.length ; j++) {
-			elt1s[j].style.backgroundColor = "#E93163";
-			elt1s[j].getElementsByTagName("button")[0].style.display = "none";
-			elt1s[j].getElementsByTagName("p")[0].innerHTML = "";
-			elt2s[j].style.backgroundColor = "#E93163";
-			elt2s[j].getElementsByTagName("button")[0].style.display = "none";
-			elt2s[j].getElementsByTagName("p")[0].innerHTML = "";
-
-		}
-	}
-	else{
-		for (var j = 0 ; j < elt1s.length ; j++) {
-			elt1s[j].style.backgroundColor = "#659E7D";
-			elt1s[j].getElementsByTagName("button")[0].style.display = "inline";
-			elt1s[j].getElementsByTagName("p")[0].innerHTML = "plus que "+dispo[sem].lit+" lit(s) disponible(s)";
-		}
-		for (var j = 0 ; j < elt2s.length ; j++) {
-			if(dispo[semSuivante].lit <1){
-				elt2s[j].style.backgroundColor = "#E93163";
-				elt2s[j].getElementsByTagName("button")[0].style.display = "none";
-				elt2s[j].getElementsByTagName("p")[0].innerHTML = "";
-			}
-			else{
-				nbDispo = (Math.min(dispo[sem].lit, dispo[semSuivante].lit));
-				elt2s[j].style.backgroundColor = "#659E7D";
-				elt2s[j].getElementsByTagName("button")[0].style.display = "inline";
-				elt2s[j].getElementsByTagName("p")[0].innerHTML = "plus que "+nbDispo+" lit(s) disponible(s) ["+dispo[sem].lit+","+dispo[semSuivante].lit+"]";
-				//console.log("dispo 2 semaines");
-			}
-		}
-	}
-
+	});
 });
-
-/********************INIT DU CAROUSEL******************************/
-//caché si fiche du package visible 
-/*console.log(document.getElementById('produit').style.display);
-if(document.getElementById('produit').style.display == "block"){
-	
-	
-}
-else{
-	
-}*/
-
 
 
 
 $(function () {
 	$('[data-toggle="tooltip"]').tooltip()
-  })
+})
   
-  function	changerOn()
-  {
-	  document.getElementById('card1').style.backgroundColor="#fefefe";
-	  document.getElementById('cardTitle1').style.color="#F4B52E";
-	  document.getElementById('button1').style.backgroundColor="#356E99";
-	  document.getElementById('button1').style.borderColor="#356E99";
-	  document.getElementById('button1').style.color="#ffffff";
-  }
-  function	changerOff()
-  {
-	  document.getElementById('card1').style.backgroundColor="rgba(237, 237, 237, 1)";
-	  document.getElementById('cardTitle1').style.color="#356E99";
-	  document.getElementById('button1').style.backgroundColor="#ffffff";
-	  document.getElementById('button1').style.borderColor="#356E99";
-	  document.getElementById('button1').style.color="#356E99";
-  }
 
 //update de la page si clique sur tous les packages ("Nos packs")
 var el = document.getElementsByClassName("nosPacks");
 for( var i=0; i<el.length; i++){
-	//console.log(i);
 	el[i].addEventListener("click", function() {
 		resetClassMenu();
-		//console.log("liste des classe :"+this.classList);
 		document.getElementsByClassName("menuItem nosPacks")[0].classList.add("active");
 		document.getElementById('produit').style.display = "none";
 		document.getElementById('carousel').style.display = "block";
@@ -343,7 +234,7 @@ function resetClassMenu() {
 	}
 }
 
-/****ajout d'un produit au panier */
+/**** TODO ajout d'un produit au panier */
 document.getElementById('testAchat').addEventListener("click", function() {	
 	nbArticle++;
 	console.log("ajouté au panier ! "+nbArticle+" articles");

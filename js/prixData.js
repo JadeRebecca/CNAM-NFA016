@@ -184,28 +184,28 @@ var prixPack2 = new Array(
 
 var prixPack3 = new Array(
     {
-        montant : 1,
+        montant : 1000,
         saison : 'hauteSaison',
         duree : '1s',
         logement : 'bungalow',
         pack : 'free'
     }, 
     {
-        montant : 300,
+        montant : 1,
         saison : 'basseSaison',
         duree : '1s',
         logement : 'bungalow',
         pack : 'free'
     },
     {
-        montant : 720,
+        montant : 2000,
         saison : 'hauteSaison',
         duree : '2s',
         logement : 'bungalow',
         pack : 'free'
     }, 
     {
-        montant : 480,
+        montant : 2,
         saison : 'basseSaison',
         duree : '2s',
         logement : 'bungalow',
