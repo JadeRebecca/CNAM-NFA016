@@ -22,5 +22,7 @@ Bibliothèques externes
 Les bibliothèques externes sont appeléeS via un CDN
 
 J'ai utilisé la bibliothèque jQuery
+
 J'ai utilisé la bibliothèque Toastr pour les notifications
+
 J'ai utilisé la bibliothèque d'icones fontawesone
