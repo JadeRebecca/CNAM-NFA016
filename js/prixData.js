@@ -1,5 +1,4 @@
 
-//contient tous les prix du tableau pack1 = pack coaching
 var prixPack1 = new Array(
     {
         montant : 720,

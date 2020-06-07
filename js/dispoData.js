@@ -1,5 +1,3 @@
-//to do : formatage des dates
-//n'afficher que le futur
 var dispoData = new Array(
 {
 	debut : '30/05/2020',

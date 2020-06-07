@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Guest House Maeva Mooz Surf - Camp page d'accueil</title>
+		<meta name="description" content="Présentation de la guesthouse surfcamp Maeva Mooz située à Moorea, polynésie française."/> 
+		<meta charset="utf-8"/>
+
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"crossorigin="anonymous"/>
+		<link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
+		<!-- <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet"> -->
+		<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+	
+
+		<link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="css/surf.css">
+
+		<!-- TODO : installer version figées de JQuery-->
+		<!----<script type="text/javascript" src="js/lib/jquery-3.5.0.min.js"></script>--->
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="js/bootstrap/bootstrap.js"></script>
+		<script type="text/javascript" src="js/bootstrap/bootstrap.bundle.min.js"></script>
+
+		<!-- TODO : installer version figées= de Toaster -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script> 	
+	</head>
+	
+	<body>
+		<header class="container-fluid header">
+			<img class="photoHeader" src="images/photo/header.jpg" alt="Moorea et son lagon">
+
+			<nav class="navbar navbar-expand-lg navbar-light menu">
+				<img class="logoHeader" src="images/logo/logo.png" alt="Logo Mooz Surfcamp">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav m-auto text-right">
+						<li class="nav-item">
+							<button  tabindex="-1" type="button" class="btn btn-danger m-1"  aria-disabled="true" data-toggle="tooltip" data-placement="top" title="Page non disponible">Accueil</button>
+						</li>
+						<li class="nav-item">
+							<button  tabindex="-1" type="button" class="btn btn-warning m-1"  aria-disabled="true" data-toggle="tooltip" data-placement="top" title="Page non disponible">Hebergement</button>
+						</li>
+						<li class="nav-item dropdown">
+							<button class="btn btn-info dropdown-toggle m-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nos Packs</button>
+							<!-- bloc menu déroulant -->
+							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+								<a class="dropdown-item  menuItem nosPacks " href="#">Tous les packs</a>
+								<a class="dropdown-item  menuItem ctaDetailPack1" href="#ancre">MooZ Surf coaching</a>
+								<a class="dropdown-item  menuItem ctaDetailPack2" href="#ancre">MooZ Surf trip</a>
+								<a class="dropdown-item  menuItem ctaDetailPack3" href="#ancre">MooZ Free Surf</a>
+							</div>
+						</li>
+						<li class="nav-item">
+							<button tabindex="-1" type="button" class="btn btn-success  m-1"  aria-disabled="true" data-toggle="tooltip" data-placement="top" title="Page non disponible">Ecole de Surf</button>
+						</li>
+
+						<li class="nav-item">
+							<button  tabindex="-1" type="button" class="btn btn-primary m-1" aria-disabled="true" data-toggle="tooltip" data-placement="top" title="Page non disponible">Staff</button>	
+						</li>
+					</ul>
+				</div>
+				<img class="logoSocialHeader d-none d-lg-block" src="images/logo/logo_social_square.png"alt="logo réseaux sociaux">
+			</nav>
+		</header><!-- fin header -->
+		
+		
+<!--------------------------------------------------    PAGE     ----------------------------------------------->
+		<div class="container maPage pb-5">
+			<div class="row mb-3">
+				<div class="col text-center pt-5">
+					<h1 class="pb-3">NOS PACKS MooZ SURF</h1>
+					<hr class="separator">
+					<p>
+						Mooz Surf camp vous permet de choisir entre différents packs adaptés à tous les niveaux, que vous soyez un débutant désirant découvrir la magie du surf dans notre petit paradis ou un surfeur expérimenté voulant surfer les meilleurs spots du coin. Et quand vous rentrerez au camp, vous pourrez profiter de notre villa et de son emplacement unique sur la plage de Banane, pour vous relaxer sur un transat sur l’une des terrasses ou bien déguster une coco en regardant le soleil se coucher sur l’océan dans le plus pur style polynésien.
+					</p>
+				</div>
+			</div>
+			
+			<div class="row presaPack pl-3 pr-3">
+				<div class="col-12 col-lg-4 pt-3 pb-3  text-center presaPack">
+					<div class="p-3 presaPackSingle shadow revert">
+						<h2>COACHING</h2>
+						<img src="images/photo/pack/pack1.png" class="img-thumbnail mt-2" alt="surfeur niveau débutant">
+						<p class="mt-3">
+							Le pack tout inclus pour apprendre à surfer avec un coach accrédité qui vous guidera à travers votre évolution.
+						</p>
+						<a href="#ancre"><button type="button" class="btn revert btn-sm ctaDetailPack1">En savoir plus</button></a>
+					</div>
+				</div>
+				
+				<div class="col-12 col-lg-4  pt-3 pb-3 text-center presaPack">
+					<div class="p-3 presaPackSingle shadow revert">
+						<h2>TRIP</h2>
+						<img src="images/photo/pack/pack2.png" class="img-thumbnail mt-2" alt="surfeur niveau intermédiaire">
+						<p class="mt-3">
+							Le pack pour surfer les meilleurs spots du coin, choisi spécialement par nos coach selon vos envies et votre niveau. 
+						</p>
+						<a href="#ancre"><button type="button" class="btn btn-sm revert  ctaDetailPack2">En savoir plus</button></a>
+					</div>
+				</div>	
+				
+				<div class="col-12 col-lg-4  pt-3 pb-3 text-center  presaPack">
+					<div class="p-3 presaPackSingle shadow revert">
+						<h2>FREE</h2>
+						<img src="images/photo/pack/pack3.png" class="img-thumbnail mt-2" alt="surfeur niveau confirmé">
+						<p class="mt-3">
+							Le pack pour les surfeurs indépendants qui veulent loger chez nous et accéder aux meilleurs spots en toute liberté.
+						</p>
+						<a href="#ancre"><button type="button" class="btn revert btn-sm  ctaDetailPack3">En savoir plus</button></a>
+					</div>	
+				</div>		
+			</div>
+			
+            <!-------------------------------------DETAIL DU PACK------------------------------->			
+			<div id="detailPack">		
+				<div class="row mt-5">
+					<div class="col">
+						<h2 id="ancre" class="pb-3"></h2>
+						<hr class="separator">
+						<p id="packSubTitle" class="text-center"></p>
+					</div>
+				</div>
+			
+				<div class="row descPack">		
+					<div class="col">			
+						<div class="row  pt-3 pb-3">
+							<div class="col-12 col-lg-5">
+								<div class="card bg-light mb-3 shadow h-100">
+									<div class="card-header packCard">
+										<h3>Ce qui est inclus</h3>
+									</div>
+									<div class="card-body">
+										<p id="packDescription" class="text-justify">
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 col-lg-7 text-center mt-3">
+								<div>
+									<img src="" class="img-thumbnail packImage imgDynamique w-100" alt="">
+								</div>
+								
+								<div class="mt-3 mb-3">
+								<b>Haute saison</b> : mai-septembre // <b>Basse saison</b> : octobre - avril </br>
+								<b>CheckIn</b> le samedi à partir de 14h // <b>CheckOut</b> le samedi avant 10h
+								</div>
+							</div>
+						</div>
+						<div class="row pt-3 pb-3 pr-3">
+							<div class="col-12 col-lg-8">
+								<table id="tablePrix" class="table table-hover table-light table-bordered shadow roundedTable">
+									<thead class="tableHeader ">
+										<tr>
+										<th rowspan="2" scope="col" class="text-center align-middle titreTarif">Nos tarifs</th>
+										<th colspan="2" scope="col" class="text-center titreSemaine">1 semaine</th>
+										<th colspan="2" scope="col" class="text-center titreSemaine">2 semaines</th>
+										</tr>
+										<tr>
+										<th class="text-center titreSaison">haute saison</th>
+										<th class="text-center titreSaison">basse saison</th>
+										<th class="text-center titreSaison">haute saison</th>
+										<th class="text-center titreSaison">basse saison</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr id="bungalow">
+											<th  class="text-center" scope="row">Bungalow </th>
+											<td class="1s hauteSaison bungalow">
+												<span></span>
+												<span class="float-right"><button type="button" class="btn revert btn-sm show-toast"><i class="fas fa-cart-plus fa-2x blue"></i></button></span>
+												<p></p>
+											</td>
+											<td class="1s basseSaison bungalow">
+												<span></span>
+												<span class="float-right"><button type="button" class="btn revert btn-sm show-toast"><i class="fas fa-cart-plus fa-2x blue"></i></button></span>
+												<p></p>
+											</td>
+											<td class="2s hauteSaison bungalow">
+												<span></span>
+												<span class="float-right"><button type="button" class="btn revert btn-sm show-toast"><i class="fas fa-cart-plus fa-2x blue"></i></button></span>
+												<p></p>
+											</td>
+											<td class="2s basseSaison bungalow">
+												<span></span>
+												<span class="float-right"><button type="button" class="btn revert btn-sm show-toast"><i class="fas fa-cart-plus fa-2x blue"></i></button></span>
+												<p></p>
+											</td>
+										</tr>
+										
+										<tr id="chambre">
+											<th class="text-center" scope="row">Chambre </th>
+											<td class="1s hauteSaison chambre">
+												<span></span>
+												<span class="float-right"><button type="button" class="btn revert btn-sm show-toast"><i class="fas fa-cart-plus fa-2x blue"></i></button></span>
+												<p></p>
+											</td>
+											<td class="1s basseSaison chambre">
+												<span></span>
+												<span class="float-right"><button type="button" class="btn revert btn-sm show-toast"><i class="fas fa-cart-plus fa-2x blue"></i></button></span>
+												<p></p>
+											</td>
+											<td class="2s hauteSaison chambre">
+												<span></span>
+												<span class="float-right"><button type="button" class="btn revert btn-sm show-toast"><i class="fas fa-cart-plus fa-2x blue"></i></button></span>
+												<p></p>
+											</td>
+											<td class="2s basseSaison chambre">
+												<span></span>
+												<span class="float-right"><button type="button" class="btn revert btn-sm show-toast"><i class="fas fa-cart-plus fa-2x blue"></i></button></span>
+												<p></p>
+											</td>
+										</tr>
+										<tr id="lit">
+											<th class="text-center" scope="row">Lit </th>
+											<td class="1s hauteSaison lit">
+												<span></span>
+												<span class="float-right"><button type="button" class="btn revert btn-sm show-toast"><i class="fas fa-cart-plus fa-2x blue"></i></button></span>
+												<p></p>
+											</td>
+											<td class="1s basseSaison lit">
+												<span></span>
+												<span class="float-right"><button type="button" class="btn revert btn-sm show-toast"><i class="fas fa-cart-plus fa-2x blue"></i></button></span>
+												<p></p>
+											</td>
+											<td class="2s hauteSaison lit">
+												<span></span>
+												<span class="float-right"><button type="button" class="btn revert btn-sm show-toast"><i class="fas fa-cart-plus fa-2x blue"></i></button></span>
+												<p></p>
+											</td>
+											<td class="2s basseSaison lit">
+												<span></span>
+												<span class="float-right"><button type="button" class="btn revert btn-sm show-toast"><i class="fas fa-cart-plus fa-2x blue"></i></button></span>
+												<p></p>
+											</td>
+										</tr>
+								</table>
+							</div>
+							<div class="col-12 col-lg-4">
+								<div class="card bg-light mb-3 shadow">
+									<div class="card-header packCard">
+										<h3>Vérifier la disponibilité</h3>
+									</div>
+									<div class="card-body">
+										<div>
+											<form>
+												<div class="form-group">
+														<select class="form-control dispoDate">
+															<option selected disabled>Arrivée le :</option>
+														</select>
+												</div>
+											</form>
+										</div>
+										<div>
+											<span class="legendIndispo">
+												<i class="fas fa-calendar-times"></i>
+											</span>
+											<span>
+												Plus de place disponible
+											</span>
+										</div>
+										<div>
+											<span class="legendDispo">
+												<i class="fas fa-calendar-times"></i>
+											</span>
+											<span>
+												Place(s) disponible(s)
+											</span>
+										</div>
+									</div>
+								</div>				
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+            <!--------------------------------------------------Carroussel----------------------------------------->
+			<div id="carousel" class="row pt-5 mt-5 mb-5">
+				<div class="col-12 text-center">
+					<div id="carouselInt" class="carousel slide" data-ride="carousel">
+						<ol id="carouselList" class="carousel-indicators">
+							<!--remplissage dynamique en JS -->
+						</ol>
+						<div id="carouselPhoto" class="carousel-inner">
+							<!--remplissage dynamique en JS -->
+						</div>
+						<a class="carousel-control-prev" href="#carouselInt" role="button" data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</a>
+						<a class="carousel-control-next" href="#carouselInt" role="button" data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>		<!-- container -->
+		
+<!-------------------------------------FOOTER------------------------------->		
+		<footer class="footerMain">
+			<div class="row footer pb-3">
+				<div class="col-12 col-lg-4 text-center d-none d-lg-block order-lg-1">	
+					<div class="footerTitle">
+						<span>Mooz Surf Camp</span>
+					</div>
+					<ul class="footerMenu">
+						<li><hr></li>
+						<li>Accueil</li>
+						<li>Hebergement</li>
+						<li>Ecole de Surf</li>
+						<li>Hebergement</li>
+						<li>
+							<a href="#" class="nosPacks">Nos Packs</a>
+						</li>
+					</ul>
+				</div>
+				
+				<div class="col-12 col-lg-4 text-center order-2 order-lg-2">
+					<img class="logoFooter" src="images/logo/logo.png" alt="logo Mooz Surfcamp">
+					<div class="footerTitle">
+						FOLLOW US ON
+					</div>
+					<img class="logoSocialFooter"src="images/logo/logo_social_line.png" alt="logo réseaux sociaux">
+				</div>
+				
+				<div class="col-12 col-lg-4 text-center  pb-5 pb-lg-0  order-1 order-lg-3">
+					<div  class="footerTitle">
+						<span>Contact</span>
+					</div>
+					<ul class="footerMenu">
+						<li><hr></li>
+						<li><a href="moozsurf@gmail.com">moozsurf@gmail.com</a></li>
+						<li>Motu de Temae, Teavaro, Polynésie française</li>
+						
+					</ul>
+				</div>
+			</div>
+			<div class="footerLast text-center pt-3 pb-3">
+				Projet CNAM NFA016 // Jade Dupont // Juin 2020
+			</div>
+		</footer>
+		
+		<script src="js/carousselData.js"></script>
+		<script src="js/dispoData.js"></script>
+		<script src="js/prixData.js"></script>
+		<script src="js/surfPackData.js"></script>
+		<script src="js/surfPack.js"></script>
+
+		<script>
+			
+		</script>
+	</body>
+
+</html>
+
+
+<!--------TODO --------------------------------------
+création des cartes des packages dans JS
+------------------------------------------------------>
+

@@ -1,8 +1,0 @@
-explications
-
-site web monopage
-éléments initialement caché : la fiche produit (id : produit)
-pour charger dynamiquement les éléments de la fiche produit et l'afficher, 6 CTA
-
-J'ai utilisé la librairie jQuery
-J'ai utilisé la librairie d'icones fontawesone
